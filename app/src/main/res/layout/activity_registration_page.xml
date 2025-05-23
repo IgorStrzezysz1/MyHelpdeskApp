@@ -35,7 +35,6 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Wprowadź email"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +56,6 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Wprowadź imię"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addName"
@@ -73,14 +71,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addName"
         />
+
     <EditText
         android:id="@+id/enterSurname"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Wprowadź nazwisko"
-        app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addSurname" />
 
     <TextView
@@ -99,7 +99,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Wprowadź hasło"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addPassword" />
@@ -117,9 +117,9 @@
     <EditText
         android:id="@+id/enterAgainPassword"
         android:layout_width="250dp"
-        android:hint="Wprowadź ponownie hasło"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addAgainPassword" />
