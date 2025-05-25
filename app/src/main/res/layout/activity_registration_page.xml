@@ -13,7 +13,7 @@
         android:layout_width="350sp"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="Rejestracja"
+        android:text="Registration "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:gravity="center"
-        android:text="Wprowadź imię"
+        android:text="Please enter your first name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enterEmailTextView"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:gravity="center"
-        android:text="Wprowadź nazwisko"
+        android:text="Please enter your surname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addName"
@@ -87,9 +87,8 @@
         android:id="@+id/addPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:gravity="center"
-        android:text="Wprowadź hasło"
+        android:text="Please enter your password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enterSurname" />
@@ -109,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Wprowadź ponownie hasło"
+        android:text="Please enter your re-password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enterPassword" />
@@ -125,15 +124,17 @@
         app:layout_constraintTop_toBottomOf="@id/addAgainPassword" />
 
     <Button
+        android:id="@+id/buttonRegister"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/enterAgainPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Zarejestruj się" android:background="@drawable/square_button"
-        android:id="@+id/buttonRegister"
+        android:background="@drawable/square_button"
+        android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enterAgainPassword"
+        app:layout_constraintVertical_bias="0.501" />
 
     <Button
         android:layout_width="200dp"
@@ -142,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@id/buttonRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Cofnij się"
+        android:text="Back"
         android:id="@+id/backButton"
         app:layout_constraintBottom_toBottomOf="parent"
         />
