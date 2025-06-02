@@ -1,5 +1,6 @@
 package com.example.myhelpdeskapp;
 
+import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,50 +29,40 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.buttonLogin);
         registerButton = findViewById(R.id.buttonRegister);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailEditText.getText().toString().trim();
-                String password = passwordEditText.getText().toString().trim();
+        loginButton.setOnClickListener(v -> {
+            String email = emailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Wpisz dane logowania!", Toast.LENGTH_SHORT).show();
-                    return;
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Wpisz dane logowania!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            RetrofitClient.INSTANCE.getApiService().login(email, password).enqueue(new Callback<AuthResponse>() {
+                @Override
+                public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        String token = response.body().getToken();
+                        Toast.makeText(LoginActivity.this, "Zalogowano!" + token, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Błędny email lub hasło!", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
-                RetrofitClient.INSTANCE.getApiService().login(email, password).enqueue(new Callback<AuthResponse>() {
-                    @Override
-                    public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            String token = response.body().getToken();
-                            Toast.makeText
-                            Toast.makeText(LoginActivity.this, "Zalogowano!", Toast.LENGTH_SHORT).show();
-
-                            // Możesz zapisać token tutaj do SharedPreferences
-
-                            // Przejście do innej aktywności (np. main menu)
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Błędny email lub hasło!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<AuthResponse> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "Błąd połączenia: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
+                @Override
+                public void onFailure(Call<AuthResponse> call, Throwable t) {
+                    Toast.makeText(LoginActivity.this, "Błąd połączenia: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         });
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-                startActivity(intent);
-            }
+        registerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+            startActivity(intent);
         });
     }
 }

@@ -15,6 +15,7 @@
         android:theme="@style/Theme.MyHelpdeskApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -24,12 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity"/>
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.MyHelpdeskApp" />
+
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".MainActivity" android:theme="@style/Theme.MyHelpdeskApp" />
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".ActiveTicketsActivity" />
+        <activity android:name=".EditTicketActivity" />
+
     </application>
-
-
 
 </manifest>

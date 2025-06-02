@@ -1,0 +1,42 @@
+package com.example.myhelpdeskapp;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+
+
+public class MainMenuActivity extends AppCompatActivity {
+    Button buttonAktywneZgloszenie = findViewById(R.id.buttonAktywneZgloszenie);
+    Button buttonAchivalTickets = findViewById(R.id.buttonAchivalTickets);
+    Button buttonBack = findViewById(R.id.buttonBack);
+    Button buttonAdd = findViewById(R.id.buttonAdd);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_menu);
+
+        buttonBack = findViewById(R.id.buttonBack);
+        buttonAdd = findViewById(R.id.buttonAdd);
+        buttonBack.setOnClickListener(v ->{
+            Toast.makeText(MainMenuActivity.this, "Naciśnięto przycisk back", Toast.LENGTH_SHORT).show();
+
+
+        });
+        buttonAdd.setOnClickListener(v -> {
+            Toast.makeText(MainMenuActivity.this, "Naciśnięto przycisk add", Toast.LENGTH_SHORT).show();
+        });
+
+        buttonAktywneZgloszenie.setOnClickListener(v ->{
+            Toast.makeText(MainMenuActivity.this, "Add new ticket", Toast.LENGTH_SHORT).show();
+        });
+        buttonAchivalTickets.setOnClickListener(v ->{
+            Toast.makeText(MainMenuActivity.this, "See archival ticket", Toast.LENGTH_SHORT).show();
+        });
+
+    }
+}

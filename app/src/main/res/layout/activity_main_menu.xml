@@ -9,66 +9,72 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="witaj_w_aplikacji_n_m_j_helpdesk"
+        android:text="Welcome in\nMy Helpdesk App"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         android:textSize="35sp"
-        android:textStyle="bold|italic"
         />
 
-    <TextView
-        android:id="@+id/AktywneZgloszenia"
+    <Button
+        android:id="@+id/buttonAktywneZgloszenie"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:background="@drawable/border"
-        android:text="Zgłoszenia aktywne"
+        android:text="Active Tickets"
         android:gravity="center"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_button"
         app:layout_constraintVertical_bias="0.3"/>
 
-    <TextView
+    <Button
+        android:id="@+id/buttonAchivalTickets"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:background="@drawable/border"
-        android:text="Zgłoszenia archiwalne"
+        android:text="Archival Tickets"
         android:gravity="center"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/AktywneZgloszenia"/>
+        app:layout_constraintTop_toBottomOf="@id/buttonAktywneZgloszenie"
+        app:layout_constraintVertical_bias="0.3"/>
+
 
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wstecz"
-        android:background="@drawable/square_button"
+        android:background="@drawable/rounded_button"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="16dp" />
 
     <Button
         android:id="@+id/buttonAdd"
+        android:background="@drawable/rounded_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dodaj zgłoszenie"
-        android:background="@drawable/square_button"
+        android:text="Add Ticket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="16dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
