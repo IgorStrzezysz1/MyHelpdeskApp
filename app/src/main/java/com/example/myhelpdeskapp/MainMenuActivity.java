@@ -42,6 +42,12 @@ public class MainMenuActivity extends AppCompatActivity {
             Intent intent = new Intent(MainMenuActivity.this, ActiveTicketsActivity.class);
             startActivity(intent);
         });
-        ;
+
+        Button buttonArchivalTickets = findViewById(R.id.buttonAchivalTickets);
+                buttonArchivalTickets.setOnClickListener(v ->{
+                    Intent intent=new Intent(MainMenuActivity.this, ArchivalTicketsActivity.class);
+                    startActivity(intent);
+                });
+
     }
 }

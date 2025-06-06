@@ -1,9 +1,7 @@
 package com.example.myhelpdeskapp;
 
-import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            RetrofitClient.INSTANCE.getApiService().login(email, password).enqueue(new Callback<AuthResponse>() {
+            RetrofitClient.getApiService().login(email, password).enqueue(new Callback<AuthResponse>() {
                 @Override
                 public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                     if (response.isSuccessful() && response.body() != null) {
@@ -56,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<AuthResponse> call, Throwable t) {
                     Toast.makeText(LoginActivity.this, "Błąd połączenia: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                    t.printStackTrace();
                 }
             });
         });

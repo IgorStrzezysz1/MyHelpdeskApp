@@ -46,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 } else {
                     User user = new User(email, firstName, lastName, password);
 
-                    RetrofitClient.INSTANCE.getApiService().registerUser(user).enqueue(new Callback<Void>() {
+                    RetrofitClient.getApiService().registerUser(user).enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {

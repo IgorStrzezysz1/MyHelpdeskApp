@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextTitle"
-        android:hint="Tytuł"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:hint="Opis"
+    <LinearLayout
+        android:id="@+id/formLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp">
+
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:hint="Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:hint="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/buttonSave"
-        android:text="Zapisz"
-        android:layout_width="match_parent"
+        android:id="@+id/buttonBack"
+        android:text="Back"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp" />
+
+    <Button
+        android:id="@+id/buttonAddTicket"
+        android:text="Add Ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_button"
+        />
+
+</RelativeLayout>

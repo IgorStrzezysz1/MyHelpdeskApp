@@ -40,3 +40,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
     }
 }
+
+
+ archivalTickets.add(new Ticket(100, "Archived 1", "Old ticket"));
+        archivalTickets.add(new Ticket(101, "Archived 2", "Old ticket"));
+        adapter.notifyDataSetChanged();

@@ -61,8 +61,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
         public TicketViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.textTicketTitle);
-            description = itemView.findViewById(R.id.textTicketDescription);
+            title = itemView.findViewById(R.id.textViewTitle);
+            description = itemView.findViewById(R.id.textViewDescription);
             buttonEdit = itemView.findViewById(R.id.buttonEdit);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }

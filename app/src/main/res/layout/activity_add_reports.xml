@@ -1,53 +1,44 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp">
 
-    <TextView
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:hint="Enter title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:hint="Enter description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aktywne zgłoszenia"
-        android:id="@+id/AktywneZgloszenia"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="35sp"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/recygleVIew"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AktywneZgloszenia"
-        app:layout_constraintBottom_toTopOf="@+id/buttonBack"
-        tools:listitem="@layout/item_report_active"
-        tools:itemCount="1"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:id="@+id/buttonBack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="8dp"
-        android:text="Wstecz"
-
-        />
-    <Button
-        android:layout_width="162dp"
-        android:layout_height="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="8dp"
-        android:text="Dodaj złoszenie +"
-
-        />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp" />
+</RelativeLayout>
