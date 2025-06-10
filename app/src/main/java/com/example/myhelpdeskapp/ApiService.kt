@@ -19,9 +19,11 @@ interface ApiService {
     @GET("tickets/archival")
     fun getArchivalTickets(): Call<List<Ticket>>
 
-
     @GET("tickets/active")
     fun getActiveTickets(): Call<List<Ticket>>
+
+    @POST("tickets")
+    fun addTicket(@Body ticket: Ticket): Call<Ticket>
 
     @POST("register")
     fun registerUser(@Body user: User): Call<Void>

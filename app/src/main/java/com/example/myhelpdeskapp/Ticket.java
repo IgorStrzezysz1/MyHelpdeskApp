@@ -6,15 +6,21 @@ public class Ticket {
     private String description;
     private String status;
     private String contact;
-
     public Ticket() {
     }
-
-    public Ticket(long id, String title, String description) {
+    public Ticket(String title, String description, String status, String contact) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.contact = contact;
+    }
+    public Ticket(Long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
     }
+
+    // Gettery i settery
     public Long getId() {
         return id;
     }

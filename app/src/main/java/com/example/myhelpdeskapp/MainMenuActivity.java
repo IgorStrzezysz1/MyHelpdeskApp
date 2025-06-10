@@ -2,6 +2,7 @@ package com.example.myhelpdeskapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,14 +22,20 @@ public class MainMenuActivity extends AppCompatActivity {
         buttonAktywneZgloszenie = findViewById(R.id.buttonAktywneZgloszenie);
         buttonAchivalTickets = findViewById(R.id.buttonAchivalTickets);
         buttonBack = findViewById(R.id.buttonBack);
-        buttonAdd = findViewById(R.id.buttonAdd);
 
         buttonAktywneZgloszenie.setOnClickListener(v ->
                 Toast.makeText(this, "Kliknięto Aktywne zgłoszenia", Toast.LENGTH_SHORT).show()
         );
 
         buttonAchivalTickets.setOnClickListener(v ->
-                Toast.makeText(this, "Kliknięto Archiwalne zgłoszenia", Toast.LENGTH_SHORT).show()
+        buttonAchivalTickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenuActivity.this, ArchivalTicketsActivity.class);
+                startActivity(intent);
+            }
+        })
+
         );
 
         buttonBack.setOnClickListener(v -> {

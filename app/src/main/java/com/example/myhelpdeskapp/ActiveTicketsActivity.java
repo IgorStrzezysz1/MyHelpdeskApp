@@ -2,15 +2,16 @@ package com.example.myhelpdeskapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.util.Log;
-import com.google.gson.Gson;
-import java.io.IOException;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,15 +32,22 @@ public class ActiveTicketsActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewTickets);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         adapter = new TicketAdapter(this, ticketList);
         recyclerView.setAdapter(adapter);
+
         Button buttonBack = findViewById(R.id.buttonBack);
         buttonBack.setOnClickListener(v -> {
             Intent intent = new Intent(ActiveTicketsActivity.this, MainMenuActivity.class);
             startActivity(intent);
             finish();
         });
+
+        Button addButton = findViewById(R.id.buttonAddTicket);
+        addButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ActiveTicketsActivity.this, AddTicketActivity.class);
+            startActivity(intent);
+        });
+
         loadTickets();
     }
 
@@ -50,7 +58,7 @@ public class ActiveTicketsActivity extends AppCompatActivity {
     }
 
     private void loadTickets() {
-        com.example.myhelpdeskapp.RetrofitClient.getApiService().getActiveTickets().enqueue(new Callback<List<Ticket>>() {
+        RetrofitClient.getApiService().getActiveTickets().enqueue(new Callback<List<Ticket>>() {
             @Override
             public void onResponse(Call<List<Ticket>> call, Response<List<Ticket>> response) {
                 Log.d("RESPONSE", "code: " + response.code());
@@ -76,3 +84,4 @@ public class ActiveTicketsActivity extends AppCompatActivity {
         });
     }
 }
+
