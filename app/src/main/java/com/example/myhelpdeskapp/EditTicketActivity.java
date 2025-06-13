@@ -26,7 +26,6 @@ public class EditTicketActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.editTextDescription);
         saveButton = findViewById(R.id.buttonSave);
         backButton = findViewById(R.id.buttonBack);
-
         String title = getIntent().getStringExtra("title");
         String description = getIntent().getStringExtra("description");
         ticketId = getIntent().getLongExtra("ticketId", -1);

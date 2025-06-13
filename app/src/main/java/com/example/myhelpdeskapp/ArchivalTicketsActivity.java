@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,7 +17,6 @@ import retrofit2.Response;
 
 public class ArchivalTicketsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private TicketAdapter ticketAdapter;
     private List<Ticket> archivalTickets;
     private TicketAdapter adapter;
 
@@ -26,6 +25,9 @@ public class ArchivalTicketsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_archival_tickets);
 
+        // 🔧 Inicjalizacja RecyclerView
+        recyclerView = findViewById(R.id.recyclerViewTickets);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         archivalTickets = new ArrayList<>();
         adapter = new TicketAdapter(this, archivalTickets);
@@ -40,21 +42,22 @@ public class ArchivalTicketsActivity extends AppCompatActivity {
 
         loadArchivalTickets();
     }
-    private void loadArchivalTickets() {
-    RetrofitClient.getApiService().getArchivalTickets().enqueue((new Callback<List<Ticket>>() {
-        @Override
-        public void onResponse(Call<List<Ticket>> call, Response<List<Ticket>> response) {
-            if(response.isSuccessful()&& response.body() != null){
-                archivalTickets.clear();
-                archivalTickets.addAll(response.body());
-                adapter.notifyDataSetChanged();
-            }
-        }
 
-        @Override
-        public void onFailure(Call<List<Ticket>> call, Throwable t) {
-        t.printStackTrace();
-        }
-    }));
+    private void loadArchivalTickets() {
+        RetrofitClient.getApiService().getArchivalTickets().enqueue(new Callback<List<Ticket>>() {
+            @Override
+            public void onResponse(Call<List<Ticket>> call, Response<List<Ticket>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    archivalTickets.clear();
+                    archivalTickets.addAll(response.body());
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Ticket>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 }

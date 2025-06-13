@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FDF9FD"
+    tools:context=".ArchivalTicketsActivity">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Archival Tickets"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="48dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewArchivalTickets"
+        android:id="@+id/recyclerViewTickets"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_below="@id/textTitle"
+        android:layout_above="@+id/buttonBack"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/buttonBack"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="Back" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="Back"
+        android:backgroundTint="#6A4EB4"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/rounded_button"/>
+
+</RelativeLayout>
