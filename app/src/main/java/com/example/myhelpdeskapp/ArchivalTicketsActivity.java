@@ -25,7 +25,6 @@ public class ArchivalTicketsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_archival_tickets);
 
-        // 🔧 Inicjalizacja RecyclerView
         recyclerView = findViewById(R.id.recyclerViewTickets);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
